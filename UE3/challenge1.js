@@ -17,6 +17,14 @@ document.getElementById('page').appendChild(link);
 
 // d) Defacing: Try to replace the site's html layout without using JavaScript
 
-// without js?
+{
+  /* <style>
+body {
+  background-color: black;
+}
 
-window.open('https://google.com');
+#page{
+    display:none
+}
+</style> */
+}

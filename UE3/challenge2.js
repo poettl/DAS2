@@ -10,6 +10,8 @@ setTimeout(() => {
 
 // c) Try to execute JS code from a different web source within the web application
 
+<script src="urltoscript.js"></script>;
+
 // http://haklab-n1.cs.technikum-wien.at/xss/index.php?user=%3Cscript%3Ealert%28%27nice+message%27%29%3B%3C%2Fscript%3E&xss=on
 
 // d) Figure out your current sesssion ID with the server
