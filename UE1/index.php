@@ -1,3 +1,4 @@
+<!-- Server Code -->
 <?php
 if (!empty($_POST)){
     $alphabet = htmlspecialchars($_POST['alphabet']);
@@ -30,7 +31,10 @@ if (!empty($_POST)){
     <title>Passwort Generator</title>
     <style>
       body {
+        font-family: arial, sans-serif;
         padding: 0 16px;
+        max-width: 600px;
+        margin: 0 auto 0 auto;
       }
       .main-container {
         display: flex;
