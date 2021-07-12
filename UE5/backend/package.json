@@ -9,7 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-formidable": "^1.2.0"
+    "express-formidable": "^1.2.0",
+    "google-auth-library": "^7.3.0",
+    "googleapis": "^81.0.0"
   }
 }
