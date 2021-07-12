@@ -5,6 +5,7 @@ const formidable = require("express-formidable");
 var url = require("url");
 const googleLogin = require("./google-login.js");
 const digestAuth = require("./digest-auth");
+const sanitizer = require('sanitize')();
 
 const app = express();
 var cors = require("cors");
@@ -12,6 +13,7 @@ const { request } = require("http");
 
 app.use(formidable());
 app.use(cors());
+app.use(express.json());
 
 const port = 3000;
 const MAX_SESSION_TIME = 120000; // we have 2min = 120.000ms session time
@@ -63,15 +65,18 @@ app.get("/secure-page", (req, res) => {
   res.status(200).sendFile(path.resolve("./static/secure-page.html"));
 });
 
-app.post("/login", function (req, res) {
+app.post("/login", (req, res) => {
   const session = generateSessionKey();
 
+  const username = sanitizer.value(req.fields.username, 'string');
+  const password = sanitizer.value(req.fields.password, 'string');
+
   //todo: check username and password of the request body, because right now we allow every user to log in
-  if (!isCorrectUserData(req.fields)) {
+  if (!isCorrectUserData({username, password})) {
     return res.redirect("/");
   }
 
-  console.log(req.fields);
+  console.log({username, password});
 
   //create a new session
   activeSessions.push(session);
