@@ -36,7 +36,7 @@ const isCorrectUserData = ({ username, password }) => {
 };
 
 app.get('/', (req, res) => {
-  res.status(200).sendFile(path.resolve('../frontend/index.html'));
+  res.status(200).sendFile(path.resolve('./static/index.html'));
 });
 
 app.listen(port, () => {
@@ -58,7 +58,7 @@ app.get('/secure-page', (req, res) => {
     return res.status(401).send('Unauthorized');
   }
 
-  res.status(200).sendFile(path.resolve('../frontend/secure-page.html'));
+  res.status(200).sendFile(path.resolve('./static/secure-page.html'));
 });
 
 app.post('/login', function (req, res) {
