@@ -22,8 +22,18 @@
         box-sizing: border-box;
       }
 
-      button {
+      .form-button {
         background-color: #04aa6d;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      button{
+        background-color: teal;
         color: white;
         padding: 14px 20px;
         margin: 8px 0;
@@ -71,6 +81,11 @@
         };
         request.send();
       };
+
+      const digestAuth = async () => {
+        const response = await fetch('/digest-login');
+        window.location.href = response.url;
+      }
     </script>
   </head>
   <body>
@@ -94,9 +109,10 @@
           required
         />
 
-        <button type="submit">Login</button>
-        <button type="button" id="googleBtn">Google</button>
+        <button class="form-button" type="submit">Login</button>
       </div>
     </form>
+    <button type="button" id="googleBtn">Google</button>
+    <button type="button" onclick="digestAuth()">Digest Authentication</button>
   </body>
 </html>
